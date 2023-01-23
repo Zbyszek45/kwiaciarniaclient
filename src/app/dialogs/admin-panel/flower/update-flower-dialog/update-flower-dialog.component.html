@@ -1,0 +1,28 @@
+<div class="container-fields">
+  <form (ngSubmit)="onSubmit()" #productForm="ngForm" class="fields">
+    <mat-form-field class="field">
+      <mat-label>Nazwa</mat-label>
+      <input matInput type="text" class="form-control" id="name" required [(ngModel)]="nameNew" name="name" #spy>
+    </mat-form-field>
+    <mat-form-field class="field">
+      <mat-label>Link URL</mat-label>
+      <input matInput type="url" class="form-control" id="imageUrl" required [(ngModel)]="imageUrlNew" name="imageUrl">
+    </mat-form-field>
+    <mat-form-field class="field">
+      <mat-label>Cena</mat-label>
+      <input matInput type="number" class="form-control" id="price" min=0 required [(ngModel)]="priceNew" name="price">
+    </mat-form-field>
+    <mat-form-field class="field">
+      <mat-label>Ilość</mat-label>
+      <input matInput type="number" class="form-control" id="amount" min=0 required [(ngModel)]="amountNew"
+        name="amount">
+    </mat-form-field>
+    <p>Kwiat {{nameNew}} zostanie zaktualizowany</p>
+    <div mat-dialog-actions>
+      <div><button mat-flat-button color="primary" (click)="closeDialog()">COFNIJ</button></div>
+      <div><button mat-flat-button color="primary" type="submit" [disabled]="!productForm.form.valid"
+          (click)="updateFlower()">ZAPISZ</button></div>
+    </div>
+  </form>
+
+</div>

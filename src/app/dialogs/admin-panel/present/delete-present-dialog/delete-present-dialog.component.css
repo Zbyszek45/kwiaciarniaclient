@@ -1,0 +1,10 @@
+.container{
+    text-align: center;
+    font-size: 14px;
+    padding-right: 10px;
+}
+
+.mat-dialog-actions > div{
+    width: 50%;
+    align-content: center;
+}

@@ -1,0 +1,35 @@
+.container-for-table {
+    padding: 1% 1% 1% 1%;
+  }
+  
+  table {
+    width: 100%;
+    text-align: left;
+    table-layout:fixed;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .mat-column-id {
+    width: 5%;
+  }
+  .mat-column-price {
+    width: 5%;
+  }
+  .mat-column-status {
+    width: 5%;
+  }
+  .mat-column-actions {
+    width: 10%;
+  }
+  
+  
+  .mat-cell {
+    padding-right: 10px;
+    text-overflow: ellipsis; 
+    overflow: hidden; 
+    white-space: nowrap;
+  }

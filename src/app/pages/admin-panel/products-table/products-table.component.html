@@ -1,0 +1,81 @@
+<div class="container-for-table">
+  <mat-form-field>
+    <mat-label>Filtr</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Filtruję...">
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+      <td mat-cell *matCellDef="let product"> {{product.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nazwa </th>
+      <td mat-cell *matCellDef="let product"> {{product.name}} </td>
+    </ng-container>
+
+    <!-- Category Column -->
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Kategoria </th>
+      <td mat-cell *matCellDef="let product"> {{product.category.name}} </td>
+    </ng-container>
+
+    <!-- Description Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Opis </th>
+      <td mat-cell *matCellDef="let product"> {{product.description}} </td>
+    </ng-container>
+
+    <!-- ImageUrl Column -->
+    <ng-container matColumnDef="imageUrl">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Link URL </th>
+      <td mat-cell *matCellDef="let product"> {{product.imageUrl}} </td>
+    </ng-container>
+
+    <!-- Price Column -->
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Cena </th>
+      <td mat-cell *matCellDef="let product"> {{product.price}} </td>
+    </ng-container>
+
+    <!-- Amount Column -->
+    <ng-container matColumnDef="amount">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Ilość </th>
+      <td mat-cell *matCellDef="let product"> {{product.amount}} </td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>
+        <button mat-icon-button color="primary" (click)="addProduct()">
+          <mat-icon aria-label="Add">add</mat-icon>
+        </button>
+      </th>
+
+      <td mat-cell *matCellDef="let product">
+        <button mat-icon-button color="primary" (click)="updateProduct(product.id, 
+      product.name, 
+      product.category, 
+      product.description, 
+      product.imageUrl, 
+      product.price, 
+      product.amount)">
+          <mat-icon aria-label="Edit">edit</mat-icon>
+        </button>
+
+        <button mat-icon-button color="primary" (click)="deleteProduct(product.id)">
+          <mat-icon aria-label="Delete">delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 50]"></mat-paginator>
+</div>

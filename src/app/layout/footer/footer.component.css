@@ -1,0 +1,12 @@
+.footer {
+    background-color: rgba(25, 25, 25, 1);
+    color: floralwhite;
+    width: 100%;
+    float: right;
+    text-align: center;
+    height: auto;
+    bottom: 0;
+    position: fixed;
+    padding: 5px 0;
+    z-index: 99000;
+}

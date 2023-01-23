@@ -1,0 +1,8 @@
+<div class="container">
+  <p>Produkt o podanym ID: {{idDeleted}} zostanie usunięty z bazy. Czy chcesz kontynuować??</p>
+
+  <div mat-dialog-actions>
+    <div><button mat-flat-button color="primary" (click)="closeDialog()">NIE</button></div>
+    <div><button mat-flat-button color="primary" (click)="deleteProduct()">TAK</button></div>
+  </div>
+</div>

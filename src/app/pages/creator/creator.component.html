@@ -1,0 +1,154 @@
+<div class="container">
+    <h2>Wybierz kwiat</h2>
+
+    <div cdkDropList class="box-list" #flowerAvailableBoxTag1="cdkDropList" cdkDropListOrientation="horizontal"
+        [cdkDropListData]="flowersAvailable" [cdkDropListConnectedTo]="[flowerChoosenBoxTag2]"
+        (cdkDropListDropped)="dropFlowerIntoAvailable($event)">
+        <div class="box-element" *ngFor="let flower of flowersAvailable" cdkDrag>
+            <div class="with-badge-button">
+                <img src={{flower.imageUrl}} width="64px" height="64px">
+                <div *cdkDragPreview style="background-color: white; margin: auto;">
+                    <h2 style="text-align: center;">{{flower.name}}</h2>
+                    <img src={{flower.imageUrl}} width="192px" height="192px">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="container">
+    <h2>Przerzuć tutaj</h2>
+
+    <div cdkDropList class="box-list" #flowerChoosenBoxTag2="cdkDropList" cdkDropListOrientation="horizontal"
+        [cdkDropListData]="flowersChoosen" [cdkDropListConnectedTo]="[flowerAvailableBoxTag1]"
+        (cdkDropListDropped)="dropFlowerIntoChoosen($event)">
+        <div class="box-element" *ngFor="let flower of flowersChoosen" cdkDrag>
+            <div class="with-badge-button" mat-icon-button matBadge="{{flower.amount}}">
+                <img src={{flower.imageUrl}} width="64px" height="64px">
+                <div *cdkDragPreview style="background-color: white; margin: auto;">
+                    <h2 style="text-align: center;">{{flower.name}}</h2>
+                    <img src={{flower.imageUrl}} width="192px" height="192px">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h2>Wybierz wstążke</h2>
+
+    <div cdkDropList class="box-list-without-badge" #ribbonAvailableBoxTag1="cdkDropList"
+        cdkDropListOrientation="horizontal" [cdkDropListData]="ribbonAvailable"
+        [cdkDropListConnectedTo]="[ribbonChoosenBoxTag2]" (cdkDropListDropped)="dropRibbonIntoAvailable($event)">
+        <div class="box-element" *ngFor="let ribbon of ribbonAvailable" cdkDrag>
+            <div class="with-badge-button">
+                <img src={{ribbon.imageUrl}} width="64px" height="64px">
+                <div *cdkDragPreview style="background-color: white; margin: auto;">
+                    <h2 style="text-align: center;">{{ribbon.name}}</h2>
+                    <img src={{ribbon.imageUrl}} width="192px" height="192px">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="container">
+    <h2>Przerzuć tutaj</h2>
+
+    <div cdkDropList class="box-list-without-badge" #ribbonChoosenBoxTag2="cdkDropList"
+        cdkDropListOrientation="horizontal" [cdkDropListData]="ribbonChoosen"
+        [cdkDropListConnectedTo]="[ribbonAvailableBoxTag1]" (cdkDropListDropped)="dropRibbonIntoChoosen($event)">
+        <div class="box-element" *ngFor="let ribbon of ribbonChoosen" cdkDrag>
+            <div class="with-badge-button">
+                <img src={{ribbon.imageUrl}} width="64px" height="64px">
+                <div *cdkDragPreview style="background-color: white; margin: auto;">
+                    <h2 style="text-align: center;">{{ribbon.name}}</h2>
+                    <img src={{ribbon.imageUrl}} width="192px" height="192px">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h2>Wybierz prezent</h2>
+
+    <div cdkDropList class="box-list" #presentAvailableBoxTag1="cdkDropList" cdkDropListOrientation="horizontal"
+        [cdkDropListData]="presentAvailable" [cdkDropListConnectedTo]="[presentChoosenBoxTag2]"
+        (cdkDropListDropped)="dropPresentIntoAvailable($event)">
+        <div class="box-element" *ngFor="let present of presentAvailable" cdkDrag>
+            <div class="with-badge-button">
+                <img src={{present.imageUrl}} width="64px" height="64px">
+                <div *cdkDragPreview style="background-color: white; margin: auto;">
+                    <h2 style="text-align: center;">{{present.name}}</h2>
+                    <img src={{present.imageUrl}} width="192px" height="192px">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="container">
+    <h2>Przerzuć tutaj</h2>
+
+    <div cdkDropList class="box-list" #presentChoosenBoxTag2="cdkDropList" cdkDropListOrientation="horizontal"
+        [cdkDropListData]="presentChoosen" [cdkDropListConnectedTo]="[presentAvailableBoxTag1]"
+        (cdkDropListDropped)="dropPresentIntoChoosen($event)">
+        <div class="box-element" *ngFor="let present of presentChoosen" cdkDrag>
+            <div class="with-badge-button" mat-icon-button matBadge="{{present.amount}}">
+                <img src={{present.imageUrl}} width="64px" height="64px">
+                <div *cdkDragPreview style="background-color: white; margin: auto;">
+                    <h2 style="text-align: center;">{{present.name}}</h2>
+                    <img src={{present.imageUrl}} width="192px" height="192px">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h2>Wybierz karteczke</h2>
+
+    <div cdkDropList class="box-list-without-badge" #giftcardAvailableBoxTag1="cdkDropList"
+        cdkDropListOrientation="horizontal" [cdkDropListData]="giftcardAvailable"
+        [cdkDropListConnectedTo]="[giftcardChoosenBoxTag2]" (cdkDropListDropped)="dropGiftcardIntoAvailable($event)">
+        <div class="box-element" *ngFor="let giftcard of giftcardAvailable" cdkDrag>
+            <div class="with-badge-button">
+                <img src={{giftcard.imageUrl}} width="64px" height="64px">
+                <div *cdkDragPreview
+                    style="background-color: white; margin: auto; max-width: 192px; overflow-wrap: break-word;">
+                    <h6 style="text-align: center;">{{giftcard.message}}</h6>
+                    <img src={{giftcard.imageUrl}} width="192px" height="192px">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="container">
+    <h2>Przerzuć tutaj</h2>
+
+    <div cdkDropList class="box-list-without-badge" #giftcardChoosenBoxTag2="cdkDropList"
+        cdkDropListOrientation="horizontal" [cdkDropListData]="giftcardChoosen"
+        [cdkDropListConnectedTo]="[giftcardAvailableBoxTag1]" (cdkDropListDropped)="dropGiftcardIntoChoosen($event)">
+        <div class="box-element" *ngFor="let giftcard of giftcardChoosen" cdkDrag>
+            <div class="with-badge-button">
+                <img src={{giftcard.imageUrl}} width="64px" height="64px">
+                <div *cdkDragPreview
+                    style="background-color: white; margin: auto; max-width: 192px; overflow-wrap: break-word;">
+                    <h6 style="text-align: center;">{{giftcard.message}}</h6>
+                    <img src={{giftcard.imageUrl}} width="192px" height="192px">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <h1>Zapłacisz: {{wholePrice}}zł</h1>
+</div>
+
+<div class="button-action">
+    <button mat-raised-button color="primary" (click)="addToCart()">Dodaj do koszyka</button>
+</div>

@@ -1,0 +1,21 @@
+<div class="products">
+    <div class="product" *ngFor="let product of products">
+            <div class="product-img">
+                    <img src={{product.imageUrl}} width="256px" height="256px">
+            </div>
+
+            <div class="product-details">
+                <h1>{{product.name}}</h1>
+                <h2>{{product.price | currency:'PLN'}}</h2>
+                <h3>{{product.description}}</h3>
+                <h4>Pozostało: {{product.amount}} szt.</h4>
+            </div>
+
+            <div class="product-button">
+
+                <a routerLink="">
+                    <button mat-raised-button color="primary" (click)="addToCart(product)">Dodaj do koszyka</button>
+                </a>
+            </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+#bg img {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+#login-container {
+    position: relative;
+    width: 25%;
+    height: 25%;
+    display: block;
+    margin-top: 5%;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+
+    border-radius: 20px;
+    background: rgb(255, 255, 255);
+}
+
+.login-button {
+    margin: 5px;
+    width: 80%;
+}
+
+.login-fields {
+    padding-bottom: 3%;
+}

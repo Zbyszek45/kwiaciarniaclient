@@ -1,0 +1,28 @@
+<div class="fg">
+    <div class="slideContainer" style='display: inline-block; vertical-align: top;'>
+        <div class="mySlides fade">
+            <img src="../../../assets/home/slides/1.png">
+        </div>
+        <div class="mySlides fade">
+            <img src="../../../assets/home/slides/2.png">
+        </div>
+    </div>
+    <div id="guaranteeTitleContainer" class="font-effect-outline" style='display: inline-block; vertical-align: top;'>
+        <h1 style="font-size:36px;"> Dlaczego warto korzystać z naszych usług?</h1>
+        <div style="font-size:20px;">Wybierając naszą firme otrzymują państwo 100% gwarancji jakości produktu.</div>
+        <br>
+    </div>
+    <div id="recProdcTitleContainer" class="font-effect-outline" style='display: inline-block; vertical-align: top;'>
+        <h1 style="font-size:36px;"> Polecane produkty:</h1>
+    </div>
+    <div class="productContainer" *ngFor="let product of products">
+
+            <img src={{product.imageUrl}} style="width:256px;height:256px;">
+            <span class="caption">{{product.name}}</span>
+
+    </div>
+</div>
+
+<div id="bg">
+    <img src="../../../assets/contact-background.jpg" alt="">
+</div>

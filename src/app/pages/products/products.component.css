@@ -1,0 +1,40 @@
+.product {
+    width: 98%;
+    height: 256px;
+    margin: 1%;
+    border-radius: 20px;
+    background-color: white;
+  }
+
+.product-details {
+    width: 56%;
+    float: left;
+    padding: 1%;
+    text-align: left;
+}
+
+.product-details h2 {
+    font-weight: lighter;
+    color: green;
+}
+
+.product-details h3 {
+    font-weight: lighter;
+    color: grey;
+}
+
+.product-img {
+    width: 20%;
+    float: left;
+}
+
+.product-button {
+    width: 20%;
+    float: left;
+}
+
+.product-button button {
+    margin-top: 38%;
+    width: 200px;
+
+}

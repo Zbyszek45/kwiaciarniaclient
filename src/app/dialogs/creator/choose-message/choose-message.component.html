@@ -1,0 +1,14 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit()" #amountForm="ngForm" class="fields">
+    <mat-form-field class="field">
+      <mat-label>Co ma zostać napisane na kartce?</mat-label>
+      <textarea matInput class="form-control" id="message" [(ngModel)]="messageNew" name="message"
+        placeholder="Tu napisz swoją wiadomość">
+        </textarea>
+    </mat-form-field>
+    <div mat-dialog-actions>
+      <div><button mat-flat-button color="primary" type="submit" [disabled]="!amountForm.form.valid"
+          (click)="updateMessage()">Ustaw</button></div>
+    </div>
+  </form>
+</div>

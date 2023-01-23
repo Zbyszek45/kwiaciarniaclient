@@ -1,0 +1,17 @@
+<div *ngIf="orders.length; else elseBlock">
+    <div class="orders">
+        <div class="order" *ngFor="let order of orders">
+            <div class="order-details">
+                <h4>Id: {{order.id}}</h4>
+                <h3>Cena: {{order.price | currency:'PLN'}}</h3>
+                <h3>Data: {{order.date}}</h3>
+                <h3>Adres: {{order.address}}</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #elseBlock>
+    <div class="emptyContener">
+      <span style="font-size: 50px; font-style: italic;"> Brak zakończonych zamówień </span>
+    </div>
+  </ng-template>

@@ -1,0 +1,67 @@
+<div class="container">
+    <mat-horizontal-stepper [linear]="true" #stepper>
+        <mat-step>
+            <ng-template matStepLabel>Produkty</ng-template>
+            <div class="product" *ngFor="let product of cartService.products;">
+                <p style="text-align: left;">{{product.name}} {{product.price | currency:'PLN'}}</p>
+            </div>
+            <div class="product" *ngFor="let product of cartService.bouquets;">
+                <p style="text-align: left;">Stworzony bukiet {{product.price | currency:'PLN'}}</p>
+            </div>
+            <div>
+                <button mat-button matStepperNext>Dalej</button>
+            </div>
+        </mat-step>
+        <mat-step [stepControl]="tmpForm">
+            <ng-template matStepLabel>Adres</ng-template>
+            <section class="checkbox-cont" style="display: inline-block;">
+                <label class="example-margin">Wybierz:</label><br><br>
+                <mat-radio-group [(ngModel)]="addressType" name="addressType" style="float: left;">
+                    <mat-radio-button style="float: left;" class="example-margin" value="own"
+                        (change)="changeFormGroup()">
+                        Przypisany do konta 
+                        (<span style="color: grey;">{{userAddress.city}} {{userAddress.street}}
+                             {{userAddress.houseNumber}} {{userAddress.zipCode}}</span>)
+                    </mat-radio-button><br><br>
+                    <mat-radio-button style="float: left;" class="example-margin" value="diffrent"
+                        (change)="changeFormGroup()">
+                        Inny</mat-radio-button>
+                </mat-radio-group>
+            </section>
+            <div class="condition" *ngIf="getDiffrent();">
+                <form [formGroup]="addressForm">
+                    <mat-form-field>
+                        <mat-label>Miasto</mat-label>
+                        <input matInput formControlName="city" required>
+                    </mat-form-field><br>
+                    <mat-form-field>
+                        <mat-label>Ulica</mat-label>
+                        <input matInput formControlName="street" required>
+                    </mat-form-field><br>
+                    <mat-form-field>
+                        <mat-label>Numer mieszkania</mat-label>
+                        <input matInput formControlName="houseNmb" required>
+                    </mat-form-field><br>
+                    <mat-form-field>
+                        <mat-label>Kod pocztowy</mat-label>
+                        <input matInput formControlName="zipCode" required>
+                    </mat-form-field>
+                </form>
+            </div>
+            <div>
+                <button mat-button matStepperPrevious>Wstecz</button>
+                <button mat-button matStepperNext (click)="initAddress()">Dalej</button>
+            </div>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Podsumowanie</ng-template>
+            <h2>Wszystko gotowe!</h2>
+            <p>Za wszystko zapłacisz <span style="font-weight: bold;">{{cartService.getFullPrice()}} zł</span>.</p>
+            <p>Adres dostawy: {{order.address.city}} {{order.address.street}} {{order.address.houseNumber}} {{order.address.zipCode}}</p>
+            <div>
+                <button mat-button matStepperPrevious>Wstecz</button>
+                <button mat-button (click)="finish()">Zakończ</button>
+            </div>
+        </mat-step>
+    </mat-horizontal-stepper>
+</div>

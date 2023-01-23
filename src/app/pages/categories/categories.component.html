@@ -1,0 +1,10 @@
+<div class="categories">
+    <div class="category" *ngFor="let category of categories">
+            <div class="category-img">
+                <a routerLink="/products/{{category.id}}/{{category.name | linkConvert}}">
+                    <img src={{category.imageUrl}} width="256px" height="256px">
+                </a>
+                <span class="caption">{{category.name}}</span>
+            </div>
+    </div>
+</div>

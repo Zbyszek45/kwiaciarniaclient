@@ -1,0 +1,50 @@
+<div class="container-for-table">
+    <mat-form-field>
+      <mat-label>Filtr</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Filtruję...">
+    </mat-form-field>
+  
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  
+      <!-- Id Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+        <td mat-cell *matCellDef="let category"> {{category.id}} </td>
+      </ng-container>
+  
+      
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Nazwa </th>
+          <td mat-cell *matCellDef="let category"> {{category.name}} </td>
+        </ng-container>
+        
+        <!-- Image Url Column -->
+        <ng-container matColumnDef="imageUrl">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Link URL </th>
+          <td mat-cell *matCellDef="let category"> {{category.imageUrl}} </td>
+        </ng-container>
+
+         <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>
+        <button mat-icon-button color="primary" (click)="addCategory()">
+          <mat-icon aria-label="Add">add</mat-icon>
+        </button>
+      </th>
+
+      <td mat-cell *matCellDef="let category">
+        <button mat-icon-button color="primary" (click)="updateCategory(category.id, 
+      category.name, 
+      category.imageUrl)">
+          <mat-icon aria-label="Edit">edit</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 50]"></mat-paginator>
+  </div>

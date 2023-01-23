@@ -1,0 +1,24 @@
+<div id="bg">
+  <img src="../../../assets/contact-background.jpg">
+</div>
+<form #productForm="ngForm" class="fields">
+  <div id="login-container">
+    <p style="color:indigo;font-size:48px;font-weight: bold;">Zaloguj się</p>
+    <div class="login-fields">
+      <mat-form-field>
+        <mat-label>Użytkownik</mat-label>
+        <input matInput type="text" name="login" required [(ngModel)]="login" id="login">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Hasło</mat-label>
+        <input matInput type="password" name="password" required [(ngModel)]="password" id="password">
+      </mat-form-field>
+    </div>
+    <br>
+    <button mat-flat-button class="login-button" color="primary" type="submit" [disabled]="!productForm.form.valid"
+      (click)="onSubmit()">Zaloguj</button>
+    <br>
+    <a href="http://localhost:8080/login/social" target="_self">Zaloguj z Github</a>
+  </div>
+</form>

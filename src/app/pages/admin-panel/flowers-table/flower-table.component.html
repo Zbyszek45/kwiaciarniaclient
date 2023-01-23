@@ -1,0 +1,68 @@
+<div class="container-for-table">
+    <mat-form-field>
+      <mat-label>Filtr</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Filtruję...">
+    </mat-form-field>
+  
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  
+      <!-- Id Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+        <td mat-cell *matCellDef="let flower"> {{flower.id}} </td>
+      </ng-container>
+  
+      
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Nazwa </th>
+          <td mat-cell *matCellDef="let flower"> {{flower.name}} </td>
+        </ng-container>
+        
+        <!-- ImageURL Column -->
+        <ng-container matColumnDef="imageUrl">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Link URL </th>
+          <td mat-cell *matCellDef="let flower"> {{flower.imageUrl}} </td>
+        </ng-container>
+
+      <!-- Price Column -->
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Cena </th>
+        <td mat-cell *matCellDef="let flower"> {{flower.price}} </td>
+      </ng-container>
+
+      <!-- Phone Column -->
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Ilość </th>
+        <td mat-cell *matCellDef="let flower"> {{flower.amount}} </td>
+      </ng-container>
+
+      <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>
+        <button mat-icon-button color="primary" (click)="addFlower()">
+          <mat-icon aria-label="Add">add</mat-icon>
+        </button>
+      </th>
+
+      <td mat-cell *matCellDef="let flower">
+        <button mat-icon-button color="primary" (click)="updateFlower(flower.id, 
+      flower.name, 
+      flower.imageUrl, 
+      flower.price, 
+      flower.amount)">
+          <mat-icon aria-label="Edit">edit</mat-icon>
+        </button>
+
+        <button mat-icon-button color="primary" (click)="deleteFlower(flower.id)">
+          <mat-icon aria-label="Delete">delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 50]"></mat-paginator>
+  </div>

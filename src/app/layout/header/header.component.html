@@ -1,0 +1,44 @@
+<div class="menu">
+
+    <div>
+        <img src="../../../assets/header-image-huge.png">
+    </div>
+
+    <a routerLink="/home">
+        <button mat-raised-button color="primary">Strona główna</button>
+    </a>
+
+    <a routerLink="/categories">
+        <button mat-raised-button color="primary">Kategorie</button>
+    </a>
+
+    <a routerLink="/creator">
+        <button mat-raised-button color="primary">Kreator bukietów</button>
+    </a>
+
+    <a routerLink="/contact">
+        <button mat-raised-button color="primary">Kontakt</button>
+    </a>
+
+    <a routerLink="/cart">
+        <button mat-raised-button color="primary" matBadge="{{cartService.itemsNumber}}"
+            matBadgeColor="warn">Koszyk</button>
+    </a>
+
+    <div class="condition" *ngIf="isLoggedIn(); else notlogged">
+        <div class="condition" *ngIf="isAdmin()">
+            <a routerLink="/admin-panel">
+                <button mat-raised-button color="primary">Admin panel</button>
+            </a>
+        </div>
+        <a routerLink="/user-panel">
+            <button mat-raised-button color="primary">Moje konto</button>
+        </a>
+        <button mat-raised-button color="primary" (click)="logout()">Wyloguj</button>
+    </div>
+    <ng-template #notlogged>
+        <a routerLink="/login">
+            <button mat-raised-button color="primary">Zaloguj</button>
+        </a>
+    </ng-template>
+</div>

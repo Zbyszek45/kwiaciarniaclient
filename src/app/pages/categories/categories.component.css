@@ -1,0 +1,15 @@
+.category {
+  display: inline-block;
+  height: 300px;
+  width: 300px;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 20px;
+  background-color: white;
+}
+
+.caption {
+  display: block;
+  font-weight: bold;
+  font-size: large;
+}

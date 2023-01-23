@@ -1,0 +1,86 @@
+<div *ngIf="cartService.itemsNumber; else elseBlock">
+
+  <div class="contener">
+    <div class="contener-only-half">
+      <h1 style="color: rgb(92, 92, 92);">Twój koszyk</h1>
+    </div>
+    <div class="contener-only-half" style="border-right: 2px dotted grey; border-left: 2px dotted grey;">
+      <h1>Zapłacisz za wszystko: {{cartService.getFullPrice()}} zł</h1>
+    </div>
+    <div class="contener-only-half">
+      <a routerLink="/order">
+        <button mat-raised-button color="primary" style="margin-top: 6%;">
+          Zrealizuj
+        </button>
+      </a>
+    </div>
+
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Gotowe bukiety
+          </mat-panel-title>
+          <mat-panel-description>
+            Kliknij aby zobaczyć dodane bukiety
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+
+        <div class="product" *ngFor="let product of cartService.products; let i = index" [attr.data-index]="i">
+          <div class="product-img">
+            <img src={{product.imageUrl}} style="width:128px;height:128px;">
+          </div>
+
+          <div class="product-details">
+            <h1>{{product.name}}</h1>
+            <h2>{{product.price | currency:'PLN'}}</h2>
+            <h3>{{product.description}}</h3>
+          </div>
+
+          <div class="product-button">
+            <button mat-fab color="primary" (click)="delete(i)">
+              <mat-icon aria-label="Delete">delete</mat-icon>
+            </button>
+          </div>
+        </div>
+
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Własne bukiety
+          </mat-panel-title>
+          <mat-panel-description>
+            Kliknij aby zobaczyć dodane bukiety
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div class="product" *ngFor="let product of cartService.bouquets; let i = index" [attr.data-index]="i">
+          <div class="product-img">
+            <img src="../../../assets/basic-image.png" style="width:128px;height:128px;">
+          </div>
+
+          <div class="product-details">
+            <h1>Stworzony bukiet</h1>
+            <h2>{{product.price | currency:'PLN'}}</h2>
+            <h3>{{getBouquetDescription(product)}}</h3>
+          </div>
+
+          <div class="product-button">
+            <button mat-fab color="primary" (click)="deleteBouquet(i)">
+              <mat-icon aria-label="Delete">delete</mat-icon>
+            </button>
+          </div>
+        </div>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
+</div>
+<ng-template #elseBlock>
+  <div class="emptyContener">
+    <span style="font-size: 50px; font-style: italic;">Twój koszyk jest pusty :( </span>
+  </div>
+</ng-template>

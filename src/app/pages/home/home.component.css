@@ -1,0 +1,80 @@
+#bg img {
+   position: fixed;
+   width: 100%;
+   top: 0;
+   left: 0;
+   z-index: -1;
+}
+
+.fg {
+   background-color: rgba(254, 211, 255, 0.5);
+   border-radius: 10px;
+   width: 98%;
+   margin: auto;
+   margin-top: 2%;
+}
+
+.slideContainer {
+   margin-right: 2%;
+   
+}
+
+.mySlides {
+   width: 960px;
+   height: 300px;
+   display:none;
+}
+
+img {
+   width: 100%;
+   height: 100%;
+}
+
+.fade {
+   -webkit-animation-name: fade;
+   -webkit-animation-duration: 3s;
+   animation-name: fade;
+   animation-duration: 3s;
+ }
+ 
+ @-webkit-keyframes fade {
+   from {opacity: .4}
+   to {opacity: 1}
+ }
+ 
+ @keyframes fade {
+   from {opacity: .4}
+   to {opacity: 1}
+ }
+
+ #recProdcTitleContainer {
+   border-top: 1px dashed purple;
+   width: 100%;
+ }
+
+ #guaranteeTitleContainer {
+  border-top: 1px dashed purple;
+  width: 100%;
+  background: -webkit-linear-gradient(left, 
+                rgba(255, 255, 255, 0) 0%, 
+                rgba(140, 0, 255, 0.4) 30%,
+                rgba(140, 0, 255, 0.4) 70%,
+                rgba(255, 255, 255, 0) 100%
+    );
+ }
+
+ .productContainer {
+   display: inline-block;
+   height: 300px;
+   width: 300px;
+   cursor: pointer;
+   margin: 10px;
+   border-radius: 20px;
+   background-color: white;
+ }
+ 
+ .caption {
+   display: block;
+   font-weight: bold;
+   font-size: large;
+ }

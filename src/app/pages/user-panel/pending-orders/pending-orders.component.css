@@ -1,0 +1,36 @@
+.order {
+    width: 78%;
+    height: 210px;
+    margin: auto;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    border-radius: 20px;
+    background-color: white;
+  }
+
+.order-details {
+    width: 56%;
+    float: left;
+    padding: 1%;
+    padding-left: 5%;
+    text-align: left;
+}
+
+.order-details h2 {
+    font-weight: lighter;
+}
+
+.order-details h3 {
+    font-weight: lighter;
+    color: rgb(71, 71, 71);
+}
+
+.order-button {
+    float: right;
+    margin-top: 8%;
+    margin-right: 3%;
+}
+
+.emptyContener {
+    margin-top: 3%;
+}

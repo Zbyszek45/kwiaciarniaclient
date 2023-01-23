@@ -1,0 +1,26 @@
+<mat-tab-group mat-align-tabs="center">
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">people</mat-icon>
+            Dane
+        </ng-template>
+        <app-user-info></app-user-info>
+    </mat-tab>
+
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">add_shopping_cart</mat-icon>
+            Oczekujące zamówienia
+        </ng-template>
+       <app-pending-orders></app-pending-orders>
+    </mat-tab>
+
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">shopping_cart</mat-icon>
+            Zakończone zamówienia
+        </ng-template>
+       <app-finished-orders></app-finished-orders>
+    </mat-tab>
+</mat-tab-group>
+
